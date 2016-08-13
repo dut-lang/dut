@@ -30,3 +30,10 @@
 *.exe
 *.out
 *.app
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Nut
+src/nut/nut
