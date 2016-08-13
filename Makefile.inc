@@ -1,20 +1,18 @@
 .PRECIOUS: %.cpp %.o
 
-ARCH = $(shell getconf LONG_BIT)
-MAKE = make
-CC = clang
-CPP = clang++
-# CC = gcc
-# CPP = g++
-CFLAGS =
-CPP_FLAGS_32 = -m32 -D_SQ32
-CPP_FLAGS_64 = -m64 -D_SQ64
-CPP_FLAGS_OP = -O2 -fno-exceptions -fno-rtti -fno-strict-aliasing -Wall
-CPP_FLAGS = $(CPP_FLAGS_$(ARCH)) $(CPP_FLAGS_OP)
-LD = gcc
-LDFLAGS	?=
-AR = ar
-ARFLAGS = rc
+ARCH := $(shell getconf LONG_BIT)
+MAKE := make
+CC := clang
+CPP := clang++
+CFLAGS :=
+CPP_FLAGS_32 := -m32 -D_SQ32
+CPP_FLAGS_64 := -m64 -D_SQ64
+CPP_FLAGS_OP := -O2 -fno-exceptions -fno-rtti -fno-strict-aliasing -Wall
+CPP_FLAGS := $(CPP_FLAGS_$(ARCH)) $(CPP_FLAGS_OP)
+LD := gcc
+LDFLAGS	:=
+AR := ar
+ARFLAGS := rc
 
 TOPDIR = $(dir $(lastword $(MAKEFILE_LIST)))
 BINDIR = $(TOPDIR)/bin
