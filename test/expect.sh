@@ -64,7 +64,8 @@ parse_param() {
 	local ignpattern ignoreline ignoretext
 	ignpattern="^[[:space:]]*[\*#][[:space:]]*@$1"
 	ignoreline=$(grep -m1 "$ignpattern" $CURRFILE)
-	ignoretext=$(cut -s -d'"' -f2 <<< $ignoreline)
+	ignoretext=${ignoreline#*\"}
+	ignoretext=${ignoretext%\"*}
 	if [ ! -z "$ignoreline" ]; then
 		echo "$ignoretext"
 		return 1
