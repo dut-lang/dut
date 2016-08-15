@@ -1,5 +1,8 @@
 language: cpp
+
 compiler:
   - clang
   - gcc
-script: make CC=$CC CPP=$CXX
+
+script:
+  - make CC=$CC CPP=$CXX test
