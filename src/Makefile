@@ -1,3 +1,3 @@
-SUBDIRS = squirrel sqstdlib nut
+SUBDIRS = squirrel sqstdlib dut
 
 include ../Makefile.inc

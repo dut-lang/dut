@@ -1,7 +1,7 @@
 include ../Makefile.inc
 
 SHELL := /usr/bin/env sh
-PATH := $(SRCDIR)/nut:$(PATH)
+PATH := $(SRCDIR)/dut:$(PATH)
 
 test:
-	./expect.sh --verbose *_test.nut
+	./expect.sh --verbose *_test.dut

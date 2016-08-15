@@ -1,8 +1,8 @@
-# The Nut Programming Language
+# The Dut Programming Language
 
-[![Build Status](https://travis-ci.org/nut-lang/nut.svg?branch=master)](https://travis-ci.org/nut-lang/nut)
+[![Build Status](https://travis-ci.org/dut-lang/dut.svg?branch=master)](https://travis-ci.org/dut-lang/dut)
 
-Nut is a high level imperative, **object-oriented** programming language,
+Dut is a high level imperative, **object-oriented** programming language,
 designed to be a light-weight scripting language that fits in the size, memory
 bandwidth, and real-time requirements of applications.
 
@@ -10,7 +10,7 @@ bandwidth, and real-time requirements of applications.
 
 ## Install
 
-	git clone git@github.com:nut-lang/nut.git
-	cd nut
+	git clone git@github.com:dut-lang/dut.git
+	cd dut
 	make
-	src/nut/nut
+	src/dut/dut

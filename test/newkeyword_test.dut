@@ -1,4 +1,4 @@
-#!/usr/bin/env nut
+#!/usr/bin/env dut
 /**
  * @ExpectIgnore("New keyword is not implemented yet")
  * @ExpectResult("TestClass created")

@@ -1,9 +1,7 @@
-#!/usr/bin/env nut
+#!/usr/bin/env dut
 /**
  * @ExpectResult("TestClass created\ntestMethod called")
  */
-
-
 
 class TestClass
 {

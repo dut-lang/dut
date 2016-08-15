@@ -1,4 +1,4 @@
-#!/usr/bin/env nut
+#!/usr/bin/env dut
 /**
  * @ExpectIgnore("Not implemented yet")
  * @ExpectResult <<--

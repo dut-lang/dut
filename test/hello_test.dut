@@ -1,4 +1,4 @@
-#!/usr/bin/env nut
+#!/usr/bin/env dut
 /**
  * @ExpectResult("Hello World!")
  */

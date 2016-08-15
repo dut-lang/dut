@@ -1,4 +1,4 @@
-PROGRAM = nut
+PROGRAM = dut
 
 PROGRAM_SOURCES = sq.cpp
 
