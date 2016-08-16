@@ -7,9 +7,9 @@
  * -->>
  */
 
-local var = <<-EOS
+var heredoc = <<-EOS
 	Heredoc string first line
 	Heredoc string second line
 EOS
 
-print(var + "\n")
+print(heredoc + "\n")

@@ -12,4 +12,4 @@
  	}
 }
 
-local test = new TestClass()
+var test = new TestClass()

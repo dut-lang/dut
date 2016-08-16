@@ -217,7 +217,7 @@ public:
         case TK_FOR:        ForStatement();         break;
         case TK_FOREACH:    ForEachStatement();     break;
         case TK_SWITCH: SwitchStatement();      break;
-        case TK_LOCAL:      LocalDeclStatement();   break;
+        case TK_VAR:        VarStatement();         break;
         case TK_RETURN:
         case TK_YIELD: {
             SQOpcode op;
@@ -1002,7 +1002,7 @@ public:
             _fs->SetIntructionParam(tpos, 1, nkeys);
         Lex();
     }
-    void LocalDeclStatement()
+    void VarStatement()
     {
         SQObject varname;
         Lex();
@@ -1132,7 +1132,7 @@ public:
         Lex();
         BEGIN_SCOPE();
         Expect(_SC('('));
-        if(_token == TK_LOCAL) LocalDeclStatement();
+        if(_token == TK_VAR) VarStatement();
         else if(_token != _SC(';')){
             CommaExpr();
             _fs->PopTarget();
