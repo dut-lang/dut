@@ -1,0 +1,30 @@
+#!/usr/bin/env dut
+/**
+ * @ExpectResult("->level0->level1->level2")
+ */
+
+function level0() {
+	function level1() {
+		function level2() {
+			print("->level2")
+		}
+		try {
+			print("->level1")
+			level2()
+		} catch(error) {
+		}
+	}
+	try {
+		print("->level0")
+		level1()
+		level2()
+	} catch(error) {
+	}
+}
+
+try {
+	level0()
+	level1()
+	level2()
+} catch(error) {
+}

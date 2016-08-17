@@ -16,5 +16,5 @@ class TestClass
 	}
 }
 
-local test = TestClass()
+var test = TestClass()
 test.testMethod()
