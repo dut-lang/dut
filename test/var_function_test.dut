@@ -1,0 +1,17 @@
+#!/usr/bin/env dut
+/**
+ * @ExpectIgnore("This test is supposed to fail")
+ * @ExpectResult("Error!")
+ */
+
+try {
+	function level0() {
+		var function level1() {
+			print("Success!")
+		}
+		level1()
+	}
+	level0()
+} catch(error) {
+	print("Error:" + error)
+}

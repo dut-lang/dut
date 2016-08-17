@@ -1006,17 +1006,6 @@ public:
     {
         SQObject varname;
         Lex();
-        if( _token == TK_FUNCTION) {
-            Lex();
-            varname = Expect(TK_IDENTIFIER);
-            Expect(_SC('('));
-            CreateFunction(varname,false);
-            _fs->AddInstruction(_OP_CLOSURE, _fs->PushTarget(), _fs->_functions.size() - 1, 0);
-            _fs->PopTarget();
-            _fs->PushLocalVariable(varname);
-            return;
-        }
-
         do {
             varname = Expect(TK_IDENTIFIER);
             if(_token == _SC('=')) {
