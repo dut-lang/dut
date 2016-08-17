@@ -1285,8 +1285,11 @@ public:
         Expect(_SC('('));
         CreateFunction(id);
         _fs->AddInstruction(_OP_CLOSURE, _fs->PushTarget(), _fs->_functions.size() - 1, 0);
-        EmitDerefOp(_OP_NEWSLOT);
+        if (_scope.stacksize == 0)
+            EmitDerefOp(_OP_NEWSLOT);
         _fs->PopTarget();
+        if (_scope.stacksize > 0)
+            _fs->PushLocalVariable(id);
     }
     void ClassStatement()
     {
