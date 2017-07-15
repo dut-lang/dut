@@ -1,0 +1,18 @@
+---
+engines:
+  gnu-complexity:
+    enabled: true
+  fixme:
+    enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+        - "**.cpp"
+        - "**.c"
+        - "**.dut"
+ratings:
+  paths:
+  - "**.cpp"
+  - "**.c"
+  - "**.h"
