@@ -1,0 +1,8 @@
+#!/usr/bin/env dut
+/**
+ * @ExpectResult("TestClass created\ntestMethod called")
+ */
+include("module.dut")
+
+var test = TestClass()
+test.testMethod()

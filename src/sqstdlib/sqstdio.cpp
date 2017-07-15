@@ -397,6 +397,11 @@ SQRESULT sqstd_loadfile(HSQUIRRELVM v,const SQChar *filename,SQBool printerror)
     return sq_throwerror(v,_SC("cannot open the file"));
 }
 
+SQRESULT sqstd_include(HSQUIRRELVM v,const SQChar *filename,SQBool retval,SQBool printerror)
+{
+	return sqstd_dofile(v,filename,retval,printerror);
+}
+
 SQRESULT sqstd_dofile(HSQUIRRELVM v,const SQChar *filename,SQBool retval,SQBool printerror)
 {
     //at least one entry must exist in order for us to push it as the environment
@@ -448,6 +453,20 @@ SQInteger _g_io_writeclosuretofile(HSQUIRRELVM v)
     return SQ_ERROR; //propagates the error
 }
 
+SQInteger _g_io_include(HSQUIRRELVM v)
+{
+    const SQChar *filename;
+    SQBool printerror = SQFalse;
+    sq_getstring(v,2,&filename);
+    if(sq_gettop(v) >= 3) {
+        sq_getbool(v,3,&printerror);
+    }
+    sq_push(v,1); //repush the this
+    if(SQ_SUCCEEDED(sqstd_include(v,filename,SQTrue,printerror)))
+        return 1;
+    return SQ_ERROR; //propagates the error
+}
+
 SQInteger _g_io_dofile(HSQUIRRELVM v)
 {
     const SQChar *filename;
@@ -466,6 +485,7 @@ SQInteger _g_io_dofile(HSQUIRRELVM v)
 static const SQRegFunction iolib_funcs[]={
     _DECL_GLOBALIO_FUNC(loadfile,-2,_SC(".sb")),
     _DECL_GLOBALIO_FUNC(dofile,-2,_SC(".sb")),
+    _DECL_GLOBALIO_FUNC(include,-2,_SC(".sb")),
     _DECL_GLOBALIO_FUNC(writeclosuretofile,3,_SC(".sc")),
     {NULL,(SQFUNCTION)0,0,NULL}
 };

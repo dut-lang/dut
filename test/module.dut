@@ -1,0 +1,12 @@
+class TestClass
+{
+	constructor()
+	{
+		print("TestClass created\n")
+	}
+
+	function testMethod()
+	{
+		print("testMethod called\n")
+	}
+}
