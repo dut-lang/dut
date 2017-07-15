@@ -115,7 +115,6 @@ int getargs(HSQUIRRELVM v,int argc, char* argv[],SQInteger *retval)
                 case 'v':
                     PrintVersionInfos();
                     return _DONE;
-
                 case 'h':
                     PrintVersionInfos();
                     PrintUsage();
@@ -166,9 +165,6 @@ int getargs(HSQUIRRELVM v,int argc, char* argv[],SQInteger *retval)
                 }
             }
             else {
-                //if(SQ_SUCCEEDED(sqstd_dofile(v,filename,SQFalse,SQTrue))) {
-                    //return _DONE;
-                //}
                 if(SQ_SUCCEEDED(sqstd_loadfile(v,filename,SQTrue))) {
                     int callargs = 1;
                     sq_pushroottable(v);
@@ -185,7 +181,6 @@ int getargs(HSQUIRRELVM v,int argc, char* argv[],SQInteger *retval)
 #endif
                         sq_pushstring(v,a,-1);
                         callargs++;
-                        //sq_arrayappend(v,-2);
                     }
                     if(SQ_SUCCEEDED(sq_call(v,callargs,SQTrue,SQTrue))) {
                         SQObjectType type = sq_gettype(v,-1);
@@ -240,7 +235,7 @@ void Interactive(HSQUIRRELVM v)
     while (!done)
     {
         SQInteger i = 0;
-        scprintf(_SC("\nsq>"));
+        scprintf(_SC("\ndut> "));
         for(;;) {
             int c;
             if(done)return;
@@ -263,7 +258,7 @@ void Interactive(HSQUIRRELVM v)
                     buffer[i++] = (SQChar)c;
             }
             else if (i >= MAXINPUT-1) {
-                scfprintf(stderr, _SC("sq : input line too long\n"));
+                scfprintf(stderr, _SC("dut : input line too long\n"));
                 break;
             }
             else{
