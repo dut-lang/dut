@@ -147,11 +147,6 @@ int getargs(HSQUIRRELVM v,int argc, char* argv[],SQInteger *retval)
 
             arg++;
 
-            //sq_pushstring(v,_SC("ARGS"),-1);
-            //sq_newarray(v,0);
-
-            //sq_createslot(v,-3);
-            //sq_pop(v,1);
             if(compiles_only) {
                 if(SQ_SUCCEEDED(sqstd_loadfile(v,filename,SQTrue))){
                     const SQChar *outfile = _SC("out.cdut");

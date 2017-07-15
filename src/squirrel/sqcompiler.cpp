@@ -217,7 +217,7 @@ public:
         case TK_FOR:     ForStatement();         break;
         case TK_FOREACH: ForEachStatement();     break;
         case TK_SWITCH:  SwitchStatement();      break;
-	case TK_VAR:     VarStatement();         break;
+	    case TK_VAR:     VarStatement();         break;
         case TK_RETURN:
         case TK_YIELD: {
             SQOpcode op;
