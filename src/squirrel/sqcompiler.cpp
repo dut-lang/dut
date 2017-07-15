@@ -210,14 +210,14 @@ public:
     {
         _fs->AddLineInfos(_lex._currentline, _lineinfo);
         switch(_token){
-        case _SC(';'):  Lex();                  break;
-        case TK_IF:     IfStatement();          break;
-        case TK_WHILE:      WhileStatement();       break;
-        case TK_DO:     DoWhileStatement();     break;
-        case TK_FOR:        ForStatement();         break;
-        case TK_FOREACH:    ForEachStatement();     break;
-        case TK_SWITCH: SwitchStatement();      break;
-        case TK_VAR:        VarStatement();         break;
+        case _SC(';'):   Lex();                  break;
+        case TK_IF:      IfStatement();          break;
+        case TK_WHILE:   WhileStatement();       break;
+        case TK_DO:      DoWhileStatement();     break;
+        case TK_FOR:     ForStatement();         break;
+        case TK_FOREACH: ForEachStatement();     break;
+        case TK_SWITCH:  SwitchStatement();      break;
+	case TK_VAR:     VarStatement();         break;
         case TK_RETURN:
         case TK_YIELD: {
             SQOpcode op;
@@ -466,6 +466,7 @@ public:
         INVOKE_EXP(f);
         SQInteger op1 = _fs->PopTarget();SQInteger op2 = _fs->PopTarget();
         _fs->AddInstruction(op, _fs->PushTarget(), op1, op2, op3);
+        _es.etype = EXPR;
     }
     void LogicalOrExp()
     {
@@ -482,6 +483,7 @@ public:
             if(trg != second_exp) _fs->AddInstruction(_OP_MOVE, trg, second_exp);
             _fs->SnoozeOpt();
             _fs->SetIntructionParam(jpos, 1, (_fs->GetCurrentPos() - jpos));
+            _es.etype = EXPR;
             break;
         }else return;
     }
@@ -501,6 +503,7 @@ public:
             if(trg != second_exp) _fs->AddInstruction(_OP_MOVE, trg, second_exp);
             _fs->SnoozeOpt();
             _fs->SetIntructionParam(jpos, 1, (_fs->GetCurrentPos() - jpos));
+            _es.etype = EXPR;
             break;
             }
 
@@ -1121,7 +1124,7 @@ public:
         Lex();
         BEGIN_SCOPE();
         Expect(_SC('('));
-        if(_token == TK_VAR) VarStatement();
+	if(_token == TK_VAR) VarStatement();
         else if(_token != _SC(';')){
             CommaExpr();
             _fs->PopTarget();
