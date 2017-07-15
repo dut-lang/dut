@@ -65,10 +65,10 @@ struct SQOuter;
 
 #include "sqconfig.h"
 
-#define SQUIRREL_VERSION    _SC("Squirrel 3.1 stable")
-#define SQUIRREL_COPYRIGHT  _SC("Copyright (C) 2003-2016 Alberto Demichelis")
-#define SQUIRREL_AUTHOR     _SC("Alberto Demichelis")
-#define SQUIRREL_VERSION_NUMBER 310
+#define SQUIRREL_VERSION    _SC("Dut 1.0 alpha")
+#define SQUIRREL_COPYRIGHT  _SC("Copyright (C) 2016-2017 Dut Team")
+#define SQUIRREL_AUTHOR     _SC("Dut Team")
+#define SQUIRREL_VERSION_NUMBER 10
 
 #define SQ_VMSTATE_IDLE         0
 #define SQ_VMSTATE_RUNNING      1

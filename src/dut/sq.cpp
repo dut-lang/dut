@@ -22,6 +22,10 @@
 #define scvprintf vfprintf
 #endif
 
+#define DUT_VERSION    _SC("Dut 1.0 alpha")
+#define DUT_COPYRIGHT  _SC("Copyright (C) 2016-2017 Dut Team")
+#define DUT_AUTHOR     _SC("Dut Team")
+#define DUT_VERSION_NUMBER 10
 
 void PrintVersionInfos();
 
@@ -61,12 +65,12 @@ void errorfunc(HSQUIRRELVM SQ_UNUSED_ARG(v),const SQChar *s,...)
 
 void PrintVersionInfos()
 {
-    scfprintf(stdout,_SC("%s %s (%d bits)\n"),SQUIRREL_VERSION,SQUIRREL_COPYRIGHT,((int)(sizeof(SQInteger)*8)));
+    scfprintf(stdout,_SC("%s %s (%d bits)\n"),DUT_VERSION,DUT_COPYRIGHT,((int)(sizeof(SQInteger)*8)));
 }
 
 void PrintUsage()
 {
-    scfprintf(stderr,_SC("usage: sq <options> <scriptpath [args]>.\n")
+    scfprintf(stderr,_SC("usage: dut <options> <scriptpath [args]>.\n")
         _SC("Available options are:\n")
         _SC("   -c              compiles the file to bytecode(default output 'out.cdut')\n")
         _SC("   -o              specifies output file for the -c option\n")
