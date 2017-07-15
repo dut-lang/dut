@@ -68,7 +68,7 @@ void PrintUsage()
 {
     scfprintf(stderr,_SC("usage: sq <options> <scriptpath [args]>.\n")
         _SC("Available options are:\n")
-        _SC("   -c              compiles the file to bytecode(default output 'out.cnut')\n")
+        _SC("   -c              compiles the file to bytecode(default output 'out.cdut')\n")
         _SC("   -o              specifies output file for the -c option\n")
         _SC("   -c              compiles only\n")
         _SC("   -d              generates debug infos\n")
@@ -151,7 +151,7 @@ int getargs(HSQUIRRELVM v,int argc, char* argv[],SQInteger *retval)
             //sq_pop(v,1);
             if(compiles_only) {
                 if(SQ_SUCCEEDED(sqstd_loadfile(v,filename,SQTrue))){
-                    const SQChar *outfile = _SC("out.cnut");
+                    const SQChar *outfile = _SC("out.cdut");
                     if(output) {
 #ifdef SQUNICODE
                         int len = (int)(strlen(output)+1);
